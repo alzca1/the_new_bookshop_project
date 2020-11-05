@@ -1,0 +1,42 @@
+<nav id="navbar">
+  <div class="navbar-container">
+    <a href="#">
+      <img src="../../../assets/images/logo.png" />
+    </a>
+    <ul class="navbar-list">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Books</a></li>
+      <li>
+        <button>Categories</button>
+        <div class="navbar-list-dropdown">
+          <app-categories-dropdown></app-categories-dropdown>
+        </div>
+      </li>
+      <li><a href="#">Wishlist</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <div class="navbar-search">
+      <input placeholder="Search" />
+      <button>Submit</button>
+    </div>
+    <div class="user-container">
+      <div>
+        <button>User</button>
+        <div class="user-signin">
+          <app-user-sign></app-user-sign>
+          <ul>
+            <li><a href="#">New around here? Sign Up</a></li>
+            <li><a href="#">Forgot Password</a></li>
+          </ul>
+        </div>
+        <a href="#">Cart</a>
+        
+      </div>
+    </div>
+    <div class="user-container-mobile">
+      <a href="#"> <i class="fas fa-user"></i> </a>
+      <a href="#"><i class="fas fa-shopping-cart"></i></a>
+      <a href="#"><i class="fas fa-bars"></i></a>
+    </div>
+  </div>
+</nav>
