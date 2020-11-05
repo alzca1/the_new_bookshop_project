@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,gBAAgB,CAAC;EACf,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;EACf,MAAM,EAAE,MAAM;EACd,eAAe,EAAE,MAAM;EACvB,UAAU,EAAE,IAAI;CACjB",
     "sources": [
         "books.component.scss"
     ],
