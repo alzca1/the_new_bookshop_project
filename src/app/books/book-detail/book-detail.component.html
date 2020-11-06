@@ -1,1 +1,29 @@
-<p>book-detail works!</p>
+<article>
+  <div class="book-detail-container">
+    <div class="title-container">
+      <span>{{ book.author }}</span>
+      <h1>{{ book.title }}</h1>
+    </div>
+    <div class="img-container">
+      <img src="{{ book.cover }}" alt="{{ book.title }}" />
+      <button><i class="fas fa-heart"></i></button>
+    </div>
+    <div class="price-container">
+      <div>
+        Price : <span>{{ book.price }} € </span>
+      </div>
+      <div class="availability-container">
+        Availability: <span>{{ book.stock }}</span>
+      </div>
+      <div class="buy-container">
+        <button class="addToCartButton">Add To Cart</button>
+      </div>
+      <hr>
+    </div>
+    <div class="summary-container">
+      <p *ngFor="let paragraph of book.summary">
+          <span>{{paragraph}}</span>
+      </p>
+    </div>
+  </div>
+</article>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { Route, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BooksComponent } from './books/books.component';
 import { BookComponent } from './books/book/book.component';
@@ -11,6 +11,12 @@ import { NavbarComponent } from './UI/navbar/navbar.component';
 import { CategoriesDropdownComponent } from './UI/categories-dropdown/categories-dropdown.component';
 import { BookSearchComponent } from './UI/book-search/book-search.component';
 import { UserSignComponent } from './UI/user-sign/user-sign.component';
+
+const appRoutes: Route[] = [
+  { path: '', component: HomeComponent },
+  { path: 'books', component: BooksComponent },
+  { path: 'detail/:title', component: BookDetailComponent },
+];
 
 @NgModule({
   declarations: [
@@ -23,12 +29,10 @@ import { UserSignComponent } from './UI/user-sign/user-sign.component';
     NavbarComponent,
     CategoriesDropdownComponent,
     BookSearchComponent,
-    UserSignComponent
+    UserSignComponent,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

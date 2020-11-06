@@ -16,7 +16,7 @@ export class BooksComponent implements OnInit {
         1960,
         'Fiction',
         10.99,
-        'No summary provided',
+        ['No summary provided'],
         10,
         'https://images-na.ssl-images-amazon.com/images/I/41EJ8GyPCML._SX327_BO1,204,203,200_.jpg'
       ),
@@ -26,7 +26,7 @@ export class BooksComponent implements OnInit {
         1980,
         'Thriller',
         8.99,
-        'Not provided',
+        ['Not provided'],
         20,
         'https://m.media-amazon.com/images/I/5149qXmwFQL.jpg'
       ),
@@ -36,7 +36,7 @@ export class BooksComponent implements OnInit {
         2003,
         'Fiction',
         9.99,
-        'Not provided',
+        ['Not provided'],
         14,
         'https://images-na.ssl-images-amazon.com/images/I/41JwCRRKjfL._SX309_BO1,204,203,200_.jpg'
       ),
@@ -46,7 +46,7 @@ export class BooksComponent implements OnInit {
         2010,
         'Fiction',
         17.99,
-        'Not provided',
+        ['Not provided'],
         8,
         'https://images-na.ssl-images-amazon.com/images/I/51HzFPWh3dL._SX320_BO1,204,203,200_.jpg'
       ),

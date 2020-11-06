@@ -1,12 +1,14 @@
-<div class="book-container">
-  <div class="img-container">
-    <img src="{{ book.cover }}" />
-    <span class="price">{{ book.price }} €</span>
+<article id="book">
+  <div class="book-container" [routerLink]="['/detail', book.title]">
+    <div class="img-container">
+      <img src="{{ book.cover }}" />
+      <span class="price">{{ book.price }} €</span>
+    </div>
+    <div class="info-container">
+      <strong
+        ><span>{{ book.title }}</span></strong
+      >
+      <span>{{ book.author }}</span>
+    </div>
   </div>
-  <div class="info-container">
-    <strong
-      ><span>{{ book.title }}</span></strong
-    >
-    <span>{{ book.author }}</span>
-  </div>
-</div>
+</article>

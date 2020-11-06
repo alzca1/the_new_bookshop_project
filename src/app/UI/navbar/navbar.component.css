@@ -16,6 +16,10 @@
   position: sticky;
 }
 
+#navbar .navbar-container .navbar-list .active a {
+  color: yellow;
+}
+
 #navbar .navbar-container {
   background-color: #343a40;
   padding: 15px 15px;

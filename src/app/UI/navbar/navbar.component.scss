@@ -8,6 +8,10 @@
   position: sticky;
 }
 
+#navbar .navbar-container .navbar-list .active a{
+  color: yellow; 
+}
+
 #navbar .navbar-container {
   background-color: rgba(52, 58, 64, 1);
   padding: 15px 15px;

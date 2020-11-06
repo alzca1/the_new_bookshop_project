@@ -4,7 +4,7 @@ export class Book {
   public year: number;
   public category: string;
   public price: number;
-  public summary: string;
+  public summary: string[];
   public stock: number;
   public cover: string;
 
@@ -14,7 +14,7 @@ export class Book {
     year: number,
     category: string,
     price: number,
-    summary: string,
+    summary: string[],
     stock: number,
     cover: string
   ) {
