@@ -19,11 +19,6 @@ export class LoginComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.signForm = new FormGroup({
-      name: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(20),
-      ]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [
         Validators.required,
@@ -49,6 +44,11 @@ export class LoginComponent implements OnInit, OnChanges {
 
   checkLoggedIn() {
     this.authService.isLoggedIn();
+  }
+  
+  logForm(event, signForm){
+    event.preventDefault(); 
+    console.log(signForm)
   }
 
   signOut() {

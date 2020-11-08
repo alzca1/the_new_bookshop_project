@@ -25,7 +25,9 @@
           >A valid password has between 6 to 20 characters</small
         >
       </div>
-      <button [disabled]="formIsInvalid" type="submit">Submit</button>
+     
+      <button (click)="logForm($event, signForm)">log form</button>
+      <button [disabled]="signForm.status === 'INVALID'? true: false" type="submit">Submit</button>
     </form>
   </div>
 </section>
