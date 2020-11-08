@@ -1,0 +1,60 @@
+<section id="signUp">
+  <div></div>
+  <div class="signUp-container">
+    <form
+      (ngSubmit)="onSubmit()"
+      [formGroup]="signUpForm"
+      class="form-container"
+    >
+      <div class="input-container">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required formControlName="name" />
+        <small
+          *ngIf="
+            !signUpForm.get('name').valid && signUpForm.get('name').touched
+          "
+          >Please, add a valid name.</small
+        >
+      </div>
+      <div class="input-container">
+        <label for="email">E-mail</label>
+        <input type="email" id="username" required formControlName="email" />
+        <small
+          *ngIf="
+            !signUpForm.get('email').valid && signUpForm.get('email').touched
+          "
+          >Please, add a valid e-mail.</small
+        >
+      </div>
+      <div class="input-container">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          required
+          formControlName="password"
+        />
+        <small
+          *ngIf="
+            !signUpForm.get('password').valid &&
+            signUpForm.get('password').touched
+          "
+          >A valid password has between 6 to 20 characters</small
+        >
+      </div>
+
+      <!-- <small class="account-choice" (click)="toggleSignInSignUp()">{{
+          signUp
+            ? "Already have an account? Sign In!"
+            : "Don't have an account yet? Sign Up!"
+        }}</small> -->
+
+      <button
+        [disabled]="signUpForm.status === 'VALID' ? false : true"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</section>

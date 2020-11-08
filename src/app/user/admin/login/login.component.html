@@ -1,0 +1,38 @@
+<section id="signin">
+  <div></div>
+  <div class="signin-container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="signForm" class="form-container">
+      <div class="input-container">
+        <label for="email">E-mail</label>
+        <input
+          type="email"
+          id="username"
+          required
+          formControlName="email"
+          (keyup)="buttonValidator()"
+        />
+        <small
+          *ngIf="!signForm.get('email').valid && signForm.get('email').touched"
+          >Please, add a valid e-mail.</small
+        >
+      </div>
+      <div class="input-container">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          required
+          formControlName="password"
+          (keyup)="buttonValidator()"
+        />
+        <small
+          *ngIf="
+            !signForm.get('password').valid && signForm.get('password').touched
+          "
+          >A valid password has between 6 to 20 characters</small
+        >
+      </div>
+      <button [disabled]="formIsInvalid" type="submit">Submit</button>
+    </form>
+  </div>
+</section>

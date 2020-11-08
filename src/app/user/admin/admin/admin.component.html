@@ -1,0 +1,13 @@
+<!-- <router-outlet></router-outlet> -->
+<section id="admin">
+  <div class="admin">
+    <h1>{{ signUp ? "Sign Up" : "Sign In" }}</h1>
+    <app-signup *ngIf="signUp"></app-signup>
+    <app-login *ngIf="!signUp"></app-login>
+    <small class="account-choice" (click)="toggleSignInSignUp()">{{
+      signUp
+        ? "Already have an account? Sign In!"
+        : "Don't have an account yet? Sign Up!"
+    }}</small>
+  </div>
+</section>
