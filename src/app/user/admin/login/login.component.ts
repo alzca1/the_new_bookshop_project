@@ -32,9 +32,7 @@ export class LoginComponent implements OnInit, OnChanges {
     });
   }
 
-  ngOnChanges() {
-    this.buttonValidator();
-  }
+  ngOnChanges() {}
 
   onSubmit() {
     console.log(this.signForm);
@@ -56,35 +54,5 @@ export class LoginComponent implements OnInit, OnChanges {
   signOut() {
     console.log('signin out');
     this.authService.signOut();
-  }
-
-  log(event, signForm) {
-    event.preventDefault();
-    console.log(signForm);
-  }
-
-  buttonValidator() {
-    if (this.signUp) {
-      this.formIsInvalid =
-        !this.signForm.get('name').valid &&
-        !this.signForm.get('email') &&
-        !this.signForm.get('password').valid;
-      console.log(this.formIsInvalid);
-    }
-
-    this.formIsInvalid =
-      !this.signForm.get('name').valid && !this.signForm.get('password').valid;
-    console.log(this.formIsInvalid);
-  }
-  toggleSignInSignUp() {
-    !this.signUp
-      ? (this.signMessage = 'Wanna sign in?')
-      : (this.signMessage = 'Wanna sign up?');
-    this.signUp = !this.signUp;
-    console.log(this.signUp);
-  }
-
-  changeInput(event) {
-    console.log(event);
   }
 }

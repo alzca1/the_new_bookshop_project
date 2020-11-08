@@ -41,17 +41,4 @@ export class SignupComponent implements OnInit {
     this.signUpForm.reset();
     this.authService.signUp(this.name, this.email, this.password);
   }
-
-  log(event, signUpForm) {
-    event.preventDefault();
-    console.log(signUpForm);
-  }
-
-  // toggleSignInSignUp() {
-  //   !this.signUp
-  //     ? (this.signMessage = 'Wanna sign in?')
-  //     : (this.signMessage = 'Wanna sign up?');
-  //   this.signUp = !this.signUp;
-  //   console.log(this.signUp);
-  // }
 }
