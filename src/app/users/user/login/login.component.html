@@ -1,5 +1,4 @@
 <section id="signin">
-  <div></div>
   <div class="signin-container">
     <form (ngSubmit)="onSubmit()" [formGroup]="signForm" class="form-container">
       <div class="input-container">
@@ -25,9 +24,17 @@
           >A valid password has between 6 to 20 characters</small
         >
       </div>
-     
-      <button (click)="logForm($event, signForm)">log form</button>
-      <button [disabled]="signForm.status === 'INVALID'? true: false" type="submit">Submit</button>
+      <button
+        [disabled]="signForm.status === 'INVALID' ? true : false"
+        type="submit"
+      >
+        Submit
+      </button>
     </form>
+    <div *ngIf="statusMessage" class="statusMessage" (click)="closeWindow()">
+      <span [ngClass]="statusMessage.includes('Yay') ? 'success' : 'error'">{{
+        statusMessage
+      }}</span>
+    </div>
   </div>
 </section>

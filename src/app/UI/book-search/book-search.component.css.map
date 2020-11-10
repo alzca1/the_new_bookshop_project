@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "book-search.component.scss"
+    ],
+    "names": [],
+    "file": "book-search.component.css"
+}

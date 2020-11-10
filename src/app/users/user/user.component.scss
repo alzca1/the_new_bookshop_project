@@ -1,0 +1,17 @@
+#user .user {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#user .user small{
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: .7s ease;  
+}
+
+#user .user small:hover{
+  color: blue; 
+}

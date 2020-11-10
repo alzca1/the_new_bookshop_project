@@ -57,6 +57,33 @@
   height: 35px;
 }
 
+#signin .signin-container .statusMessage {
+  // margin-top: 25px;
+  width: 100%;
+  position: relative;
+}
+
+#signin .signin-container .statusMessage .success {
+  color: green;
+  animation-name: appear;
+  animation-duration: 2s;
+  position: absolute;
+  text-align: center;
+  bottom: -150px;
+  left: 0;
+}
+
+#signin .signin-container .statusMessage .error {
+  color: red;
+  animation-name: appear;
+  animation-duration: 2s;
+  position: absolute;
+  bottom: -150px;
+  left: 0;
+  z-index: 5;
+  text-align: center;
+}
+
 @keyframes appear {
   from {
     opacity: 0;

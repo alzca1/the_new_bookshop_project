@@ -1,11 +1,13 @@
 <nav id="navbar">
   <div class="navbar-container">
-    <a href="#">
+    <a routerLink="/books">
       <img src="../../../assets/images/logo.png" />
     </a>
     <ul class="navbar-list">
       <li><a href="#">Home</a></li>
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/books">Books</a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/books">Books</a>
+      </li>
       <li>
         <button>Categories</button>
         <div class="navbar-list-dropdown">
@@ -21,7 +23,7 @@
     </div>
     <div class="user-container">
       <div>
-        <button>User</button>
+        <button>{{ !user ? "User" : user.displayName }}</button>
         <div class="user-signin">
           <app-user-sign></app-user-sign>
           <ul>
@@ -30,12 +32,11 @@
           </ul>
         </div>
         <a href="#">Cart</a>
-        
       </div>
     </div>
     <div class="user-container-mobile">
-      <a href="#"> <i class="fas fa-user"></i> </a>
-      <a href="#"><i class="fas fa-shopping-cart"></i></a>
+      <a (click)="redirectToUser()"> <i class="fas fa-user"></i> </a>
+      <a routerLink="checkout"><i class="fas fa-shopping-cart"></i></a>
       <a href="#"><i class="fas fa-bars"></i></a>
     </div>
   </div>

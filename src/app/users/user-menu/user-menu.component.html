@@ -1,0 +1,17 @@
+<section id="userMenu">
+  <div class="userMenu">
+    <h1>Welcome, {{ user }}</h1>
+    <div class="userMenu-options">
+      <span> Manage My Profile</span>
+      <span> My Orders</span>
+      <span> My Wishlist</span>
+      <span> My Addresses</span>
+      <span (click)="signOut()"> Sign Out</span>
+    </div>
+    <div *ngIf="statusMessage" class="statusMessage">
+      <span class="success">{{
+        statusMessage
+      }}</span>
+    </div>
+  </div>
+</section>

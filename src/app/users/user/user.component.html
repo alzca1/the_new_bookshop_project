@@ -1,6 +1,6 @@
 <!-- <router-outlet></router-outlet> -->
-<section id="admin">
-  <div class="admin">
+<section id="user">
+  <div class="user">
     <h1>{{ signUp ? "Sign Up" : "Sign In" }}</h1>
     <app-signup *ngIf="signUp"></app-signup>
     <app-login *ngIf="!signUp"></app-login>
@@ -9,5 +9,6 @@
         ? "Already have an account? Sign In!"
         : "Don't have an account yet? Sign Up!"
     }}</small>
+    <small routerLink="/forgot-password" class="account-choice">Forgot your password?</small>
   </div>
 </section>

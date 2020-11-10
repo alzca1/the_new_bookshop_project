@@ -1,0 +1,138 @@
+#signin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#signin .signin-container {
+  width: 300px;
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#signin .signin-container .account-choice {
+  margin-top: 20px;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.form-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#signin .signin-container .form-container div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  margin: 10px 0;
+}
+
+#signin .signin-container .form-container .input-container {
+  position: relative;
+}
+
+#signin .signin-container .form-container .input-container small {
+  color: red;
+  position: absolute;
+  bottom: -20px;
+  left: 2px;
+  -webkit-animation-name: appear;
+          animation-name: appear;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+#signin .signin-container .form-container .input-container input {
+  height: 2.5rem;
+}
+
+#signin .signin-container button {
+  margin-top: 20px;
+  width: 100%;
+  height: 35px;
+}
+
+#signin .signin-container .statusMessage {
+  width: 100%;
+  position: relative;
+}
+
+#signin .signin-container .statusMessage .success {
+  color: green;
+  -webkit-animation-name: appear;
+          animation-name: appear;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  position: absolute;
+  text-align: center;
+  bottom: -150px;
+  left: 0;
+}
+
+#signin .signin-container .statusMessage .error {
+  color: red;
+  -webkit-animation-name: appear;
+          animation-name: appear;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  position: absolute;
+  bottom: -150px;
+  left: 0;
+  z-index: 5;
+  text-align: center;
+}
+
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=login.component.css.map */

@@ -1,0 +1,63 @@
+#userMenu {
+  margin: 110px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#userMenu .userMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 90%;
+  text-align: center;
+}
+
+#userMenu .userMenu .userMenu-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.3rem;
+  margin-top: 20px;
+}
+#userMenu .userMenu .userMenu-options span {
+  padding: 10px 0;
+  margin: 5px 0; 
+  width: 100%;
+  text-align: center;
+  transition: .5s ease;
+  border-radius: 5px;
+
+}
+#userMenu .userMenu .userMenu-options span:hover {
+ 
+ box-shadow: 0 0 8px grey; 
+}
+
+
+
+#userMenu .userMenu .statusMessage {
+  margin-top: 25px;
+  width: 100%;
+}
+
+#userMenu .userMenu .statusMessage .success {
+  color: blue;
+  animation-name: appear;
+  animation-duration: 2s;
+  text-align: justify;
+}
+
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

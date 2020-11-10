@@ -1,4 +1,4 @@
-#admin .admin {
+#user .user {
   margin-top: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14,4 +14,15 @@
       -ms-flex-align: center;
           align-items: center;
 }
-/*# sourceMappingURL=admin.component.css.map */
+
+#user .user small {
+  margin-bottom: 5px;
+  cursor: pointer;
+  -webkit-transition: .7s ease;
+  transition: .7s ease;
+}
+
+#user .user small:hover {
+  color: blue;
+}
+/*# sourceMappingURL=user.component.css.map */

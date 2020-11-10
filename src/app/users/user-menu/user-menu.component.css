@@ -1,0 +1,97 @@
+#userMenu {
+  margin: 110px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#userMenu .userMenu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 90%;
+  text-align: center;
+}
+
+#userMenu .userMenu .userMenu-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.3rem;
+  margin-top: 20px;
+}
+
+#userMenu .userMenu .userMenu-options span {
+  padding: 10px 0;
+  margin: 5px 0;
+  width: 100%;
+  text-align: center;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  border-radius: 5px;
+}
+
+#userMenu .userMenu .userMenu-options span:hover {
+  -webkit-box-shadow: 0 0 8px grey;
+          box-shadow: 0 0 8px grey;
+}
+
+#userMenu .userMenu .statusMessage {
+  margin-top: 25px;
+  width: 100%;
+}
+
+#userMenu .userMenu .statusMessage .success {
+  color: blue;
+  -webkit-animation-name: appear;
+          animation-name: appear;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  text-align: justify;
+}
+
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=user-menu.component.css.map */
