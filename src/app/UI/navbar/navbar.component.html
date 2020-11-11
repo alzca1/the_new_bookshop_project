@@ -23,7 +23,10 @@
     </div>
     <div class="user-container">
       <div>
-        <button>{{ !user ? "User" : user.displayName }}</button>
+        <ng-template  #anonymousUser>
+          <button routerLink="/user/login">Login</button>
+        </ng-template>
+          <button routerLink="usermenu" *ngIf="auth.user$ | async as user; else anonymousUser">{{ user.displayName }}</button>
         <div class="user-signin">
           <app-user-sign></app-user-sign>
           <ul>

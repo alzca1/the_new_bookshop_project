@@ -25,6 +25,7 @@ import { environment } from 'src/environments/environment';
 import { UserMenuComponent } from './users/user-menu/user-menu.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CustomAuthGuard } from './guards/auth-guard.service';
+import { RedirectGuardService } from './guards/redirect-guard.service';
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/user/login']);
@@ -33,9 +34,10 @@ const appRoutes: Route[] = [
   { path: '', component: HomeComponent },
   { path: 'books', component: BooksComponent },
   { path: 'detail/:title', component: BookDetailComponent },
-  { path: 'usermenu', component: UserMenuComponent, canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin} },
+  {path: 'usermenu', component: UserMenuComponent, canActivate: [CustomAuthGuard]},
+  // { path: 'usermenu', component: UserMenuComponent, canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin} },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'checkout', component: CheckoutComponent, canActivate: [CustomAuthGuard]  },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [CustomAuthGuard] },
   {
     path: 'user',
     component: UserComponent,

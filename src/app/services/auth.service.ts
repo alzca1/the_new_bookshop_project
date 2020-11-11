@@ -1,26 +1,23 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable, Output } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import { FirebaseApp } from '@angular/fire';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  user: Observable<any>;
+  user$: Observable<firebase.default.User>;
   userData: any;
-  isUserLoggedIn: boolean;
+  private signInMessage = new Subject<any>();
+  public signInMessage$ = this.signInMessage.asObservable();
 
-  constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
-    this.firebaseAuth.authState.subscribe((user) => {
-      if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-      } else {
-        localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
-      }
-    });
+  constructor(
+    private firebaseAuth: AngularFireAuth,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.user$ = firebaseAuth.authState;
   }
 
   signUp(name: string, email: string, password: string) {
@@ -28,12 +25,13 @@ export class AuthService {
       .createUserWithEmailAndPassword(email, password)
       .then((response) => {
         response.user.updateProfile({ displayName: name });
+        // this.userService.save(response.user);
       })
       .catch((error) => {
         console.log('error', error);
       })
 
-      .then(() => {
+      .then((response) => {
         this.sendVerificationMail();
       })
       .catch((error) => {
@@ -41,32 +39,31 @@ export class AuthService {
       });
   }
 
-  signIn(email: string, password: string): Promise<any> {
+  signIn(email: string, password: string) {
+    this.firebaseAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((response) => {
+        let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || "/";
+        localStorage.setItem('returnUrl', returnUrl);
+        this.signInMessage.next(true);
+      })
+      .catch((error) => {
+        this.signInMessage.next(error);
+      });
+  }
+
+
+  signOut(): Promise<any> {
     return new Promise((resolve, reject) => {
       this.firebaseAuth
-        .signInWithEmailAndPassword(email, password)
+        .signOut()
         .then(() => {
           resolve({ success: true });
-          
         })
         .catch((error) => {
-          console.log(error);
           reject(error);
         });
     });
-  }
-  signOut():Promise<any> {
-    return new Promise((resolve,reject)=> {
-      this.firebaseAuth.signOut()
-      .then(() => {
-        resolve({success:true})
-      })
-      .catch(error => {
-        reject(error)
-      })
-    })
-  
-    
   }
 
   resetPassword(email): Promise<any> {
