@@ -23,10 +23,15 @@
     </div>
     <div class="user-container">
       <div>
-        <ng-template  #anonymousUser>
+        <ng-template #anonymousUser>
           <button routerLink="/user/login">Login</button>
         </ng-template>
-          <button routerLink="usermenu" *ngIf="auth.user$ | async as user; else anonymousUser">{{ user.displayName }}</button>
+        <button
+          routerLink="usermenu"
+          *ngIf="auth.user$ | async as user; else anonymousUser"
+        >
+          {{ user.displayName }}
+        </button>
         <div class="user-signin">
           <app-user-sign></app-user-sign>
           <ul>
@@ -34,7 +39,7 @@
             <li><a href="#">Forgot Password</a></li>
           </ul>
         </div>
-        <a href="#">Cart</a>
+        <a routerLink="checkout">Cart</a>
       </div>
     </div>
     <div class="user-container-mobile">

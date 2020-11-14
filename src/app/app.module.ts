@@ -2,7 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import {
+  AngularFireAuthGuard,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo,
+} from '@angular/fire/auth-guard';
 import { AppComponent } from './app.component';
 import { BooksComponent } from './books/books.component';
 import { BookComponent } from './books/book/book.component';
@@ -26,18 +30,29 @@ import { UserMenuComponent } from './users/user-menu/user-menu.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CustomAuthGuard } from './guards/auth-guard.service';
 import { RedirectGuardService } from './guards/redirect-guard.service';
+import { AdminOrdersComponent } from './admin/orders/admin-orders/admin-orders.component';
+import { AdminProductsComponent } from './admin/orders/admin-products/admin-products.component';
+import { AdminAuthGuardService } from './guards/admin-auth-guard.service';
 
-
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/user/login']);
+const redirectUnauthorizedToLogin = () =>
+  redirectUnauthorizedTo(['/user/login']);
 
 const appRoutes: Route[] = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: 'books', pathMatch: 'full' },
   { path: 'books', component: BooksComponent },
   { path: 'detail/:title', component: BookDetailComponent },
-  {path: 'usermenu', component: UserMenuComponent, canActivate: [CustomAuthGuard]},
+  {
+    path: 'usermenu',
+    component: UserMenuComponent,
+    canActivate: [CustomAuthGuard],
+  },
   // { path: 'usermenu', component: UserMenuComponent, canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin} },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'checkout', component: CheckoutComponent, canActivate: [CustomAuthGuard] },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+    canActivate: [CustomAuthGuard],
+  },
   {
     path: 'user',
     component: UserComponent,
@@ -46,6 +61,15 @@ const appRoutes: Route[] = [
       { path: 'signup', component: SignupComponent },
       { path: 'verify-email', component: VerifyEmailComponent },
     ],
+  },
+  {
+    path: 'admin/orders',
+    component: AdminOrdersComponent,
+    canActivate: [CustomAuthGuard, AdminAuthGuardService],
+  },
+  {
+    path: 'admin/products',
+    component: AdminProductsComponent,
   },
 ];
 
@@ -67,6 +91,8 @@ const appRoutes: Route[] = [
     VerifyEmailComponent,
     SignupComponent,
     UserMenuComponent,
+    AdminOrdersComponent,
+    AdminProductsComponent,
   ],
   imports: [
     BrowserModule,

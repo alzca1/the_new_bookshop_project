@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.signInMessageLog.unsubscribe();
+    if (this.signInMessageLog) {
+      this.signInMessageLog.unsubscribe();
+    }
   }
 
   onSubmit() {
@@ -45,7 +47,12 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.statusMessage =
             'Yay! You succesfully signed in :) Redirecting...';
           setTimeout(() => {
-            this.router.navigate([this.returnUrl]);
+            if (this.returnUrl) {
+              this.router.navigate([this.returnUrl]);
+              localStorage.removeItem('returnUrl');
+              return;
+            }
+            this.router.navigate(['usermenu']);
           }, 3500);
           return;
         }
